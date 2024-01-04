@@ -6,8 +6,7 @@ const boton_crear = document.querySelector(".boton-crear");
 
 /*
 
-Haremos que el text-area aumente su altura cuando no quepa más texto 
-con la altura predeterminada
+Haremos que el text-area aumente su altura cuando no quepa más texto con la altura predeterminada
 
 */
 
@@ -26,38 +25,24 @@ function ajustar_altura(text_area) {
 // Agregamos un evento para cuando se haga clic en el botón de crear 
 
 boton_crear.addEventListener("click", () => {
-    // Creamos la nota
-
     const notas = document.createElement("div");
     notas.classList.add("notas");
     notas.textContent = nota_input.value;
-
-    // Creamos el botón eliminar dentro de la nota
 
     const botonEliminar = document.createElement("button");
     botonEliminar.classList.add("boton-eliminar");
     botonEliminar.textContent = "Borrar";
 
-    // Agregamos el evento para eliminar la nota al hacer clic en el botón
-
     botonEliminar.addEventListener("click", () => {
         contenedor.removeChild(notas);
     });
 
-    // Añadimos el botón eliminar a la nota
 
     notas.appendChild(botonEliminar);
 
-    // Añadimos la nota al contenedor principal
-
     contenedor.appendChild(notas);
-
-    // Limpiamos el input
-    
+   
     nota_input.value = "";
-
-    // Establecemos la altura predeterminada del text-area 
 
     nota_input.style.height = "65px";
 });
-
