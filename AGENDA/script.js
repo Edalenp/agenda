@@ -12,6 +12,9 @@ Haremos que el text-area aumente su altura cuando no quepa más texto con la alt
 
 const altura_predeterminada = 65;
 const limite_caracteres = 87;
+
+// Agregamos un evento para cuando se escriba en el text-area
+
 nota_input.addEventListener("input", () => {
     ajustar_altura(nota_input);
 });
