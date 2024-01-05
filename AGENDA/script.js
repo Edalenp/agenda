@@ -28,24 +28,31 @@ function ajustar_altura(text_area) {
 // Agregamos un evento para cuando se haga clic en el botón de crear 
 
 boton_crear.addEventListener("click", () => {
-    const notas = document.createElement("div");
-    notas.classList.add("notas");
-    notas.textContent = nota_input.value;
-
-    const botonEliminar = document.createElement("button");
-    botonEliminar.classList.add("boton-eliminar");
-    botonEliminar.textContent = "Borrar";
-
-    botonEliminar.addEventListener("click", () => {
-        contenedor.removeChild(notas);
-    });
+    const error = document.querySelector(".error");
 
 
-    notas.appendChild(botonEliminar);
+    if (nota_input.value.length < 5) {
+        error.innerHTML = "Ingresa una nota de al menos cinco caracteres";
+        error.style.fontWeight = 700;
+    }
 
-    contenedor.appendChild(notas);
-   
-    nota_input.value = "";
+    else {
+        const notas = document.createElement("div");
+        notas.classList.add("notas");
+        notas.textContent = nota_input.value;
 
-    nota_input.style.height = "65px";
+        const botonEliminar = document.createElement("button");
+        botonEliminar.classList.add("boton-eliminar");
+        botonEliminar.textContent = "Borrar";
+
+        botonEliminar.addEventListener("click", () => {
+            contenedor.removeChild(notas);
+        });
+
+        contenedor.appendChild(notas);
+        notas.appendChild(botonEliminar);
+        error.innerHTML = "";
+        nota_input.value = "";
+        nota_input.style.height = "65px";
+    }
 });
