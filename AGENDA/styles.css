@@ -26,7 +26,7 @@ body {
     position: relative;
     max-width: 250px;
     height: auto;
-    margin-top: 20px;
+    margin-top: 10px;
     word-wrap: break-word;
 }
 
@@ -55,6 +55,12 @@ body {
 .boton-crear:hover {
     cursor: pointer;
     background-color: #4e4f9e;
+}
+
+.error {
+    color: red;
+    margin: 20px;
+    padding: 0;
 }
 
 .boton-eliminar {
